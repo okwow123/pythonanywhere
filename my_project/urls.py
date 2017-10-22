@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from my_app import views
+from my_app import views as mviews
+from blogengine import views as bviews
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home,name='home'),
+    url(r'^$', mviews.main,name='main'),
+    url(r'^blogengine/',bviews.main,name='main'),
 ]
