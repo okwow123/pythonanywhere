@@ -17,14 +17,12 @@
 <div class="content container">
     <div class="row">
         <div class="col-md-8">
-            {% for post in posts|slice:":4" %}
                 <div class="post">
-                    <h1><a href="{% url 'post_detail' pk=post.no %}"><p>{{ post.title }}</a></h1>
-                    <p>{{ post.content|linebreaksbr|slice:":30" }} ...</p>
-                    </a>
+                    <h1><a href="">{{ posts.title }}</a></h1>
+                    <p>{{ posts.content|linebreaksbr }}</p>
                 </div>
-            {% endfor %}
-
+            <a href="{% url 'post_plus' pk=posts.no%}" class="btn btn-primary">추천</a>
+            <a href="{% url 'post_detail' pk=posts.no|add:1 %}" class="btn btn-primary">다음</a>
         </div>
     </div>
 </div>

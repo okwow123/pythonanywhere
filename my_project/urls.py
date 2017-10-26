@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', mviews.main,name='main'),
     url(r'^blogengine/',bviews.main,name='main'),
+    url(r'^my_app/(?P<pk>\d+)/$', mviews.post_detail, name='post_detail'),
+    url(r'^plus/(?P<pk>\d+)/$', mviews.post_plus, name='post_plus'),
+
 ]

@@ -3,16 +3,20 @@ from django.utils import timezone
 
 
 class Post(models.Model):
+    print "Post model call"
     author = models.ForeignKey('auth.User')
+    no = models.AutoField(primary_key=True)
+    category=models.CharField(max_length=200,default='test')
     title = models.CharField(max_length=200)
-    text = models.TextField()
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+    content = models.TextField()
+    good_count = models.IntegerField(default=0)
+    #created_date = models.DateTimeField(
+    #        default=timezone.now)
+    #published_date = models.DateTimeField(
+    #        blank=True, null=True)
 
     def publish(self):
-        self.published_date = timezone.now()
+        #self.published_date = timezone.now()
         self.save()
 
     def __str__(self):
