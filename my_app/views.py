@@ -8,6 +8,7 @@ def main(request):
 
 def post_detail(request, pk):
     posts = get_object_or_404(Post, pk=pk)
+    posts.images=Post.image_tag(posts)
     return render(request, 'post_detail.html', {'posts': posts})
 
 def post_plus(request, pk):
