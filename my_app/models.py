@@ -5,13 +5,13 @@ from django.utils.safestring import mark_safe
 
 class Post(models.Model):
     print "Post model call"
-    author = models.ForeignKey('auth.User',default='')
+    author = models.ForeignKey('auth.User',default='',null=True)
     no = models.AutoField(primary_key=True)
-    category=models.CharField(max_length=200,default='test')
-    title = models.CharField(max_length=200)
-    content = models.TextField(default='',null=True)
-    good_count = models.IntegerField(default=0)
-    images= models.ImageField(upload_to='./my_app/static/upload',default=None,null=False)
+    category=models.CharField(max_length=200,default='test',null=True)
+    title = models.CharField(max_length=200,default='title',null=True)
+    content = models.TextField(default='content',null=True)
+    good_count = models.IntegerField(default=0,null=True)
+    images= models.ImageField(upload_to='./my_app/static/upload',default=None,null=True)
     #created_date = models.DateTimeField(
     #        default=timezone.now)
     #published_date = models.DateTimeField(

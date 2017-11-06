@@ -16,5 +16,6 @@ def post_plus(request, pk):
     posts.good_count=posts.good_count+1
     Post.objects.filter(no=pk).update(good_count=posts.good_count)
     posts = get_object_or_404(Post, pk=pk)
+    posts.images=Post.image_tag(posts)
     return render(request, 'post_detail.html', {'posts': posts})
 
